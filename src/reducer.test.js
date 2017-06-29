@@ -35,11 +35,12 @@ describe('Reducer', ()=>{
   it('should accept valid entry and provide correct feeback', () => {
     let state = reducer(undefined, {type: '_UNDEFINED'});
     const answer = state.correctAnswer;
-
+    
     state = reducer(state, {type: actions.MAKE_GUESS, guess: answer - 50});
     expect(state.feedback).toEqual('You\'re Ice Cold...');
 
     state = reducer(state, {type: actions.MAKE_GUESS, guess: answer - 30});
+   
     expect(state.feedback).toEqual('You\'re Cold...');
 
     state = reducer(state, {type: actions.MAKE_GUESS, guess: answer - 10});
